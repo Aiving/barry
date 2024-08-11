@@ -1,0 +1,33 @@
+[package]
+name = "barry"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+gdk4-wayland = "0.9.0"
+gdk = { package = "gdk4", version = "0.9", features = ["v4_12"] }
+gio = { version = "0.20", features = ["v2_78", "v2_66"] }
+glib = { version = "0.20", features = ["v2_66"] }
+gtk = { package = "gtk4", version = "0.9", features = ["gnome_45"] }
+gtk4-layer-shell = "0.4.0"
+hyprland = { git = "https://github.com/hyprland-community/hyprland-rs.git", features = [
+    "silent",
+    "unsafe-impl"
+] }
+material-colors = { version = "0.4.0", features = ["image"] }
+relm4 = { version = "0.9.0", features = ["adw", "gnome_46"] }
+relm4-components = "0.9.1"
+serde = { version = "1.0.203", features = ["derive"] }
+sysinfo = "0.31.2"
+tokio = { version = "1.39.2", features = [
+    "rt",
+    "rt-multi-thread",
+    "macros",
+    "time",
+] }
+tokio-stream = "0.1.15"
+zbus = { version = "4.4.0", features = ["option-as-array", "tokio"] }
+
+[profile.release]
+strip = "debuginfo"
+opt-level = 3
